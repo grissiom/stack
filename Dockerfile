@@ -16,12 +16,12 @@ RUN mkdir -p /build-llvm && cd /build-llvm && \
              http://llvm.org/releases/3.4/clang-3.4.src.tar.gz \
              http://llvm.org/releases/3.4/clang-tools-extra-3.4.src.tar.gz \
              http://llvm.org/releases/3.4/compiler-rt-3.4.src.tar.gz && \
-        tar zxf llvm-3.4.src.tar.gz && \
-        tar zxf clang-3.4.src.tar.gz -C llvm-3.4/tools && \
+        tar xf llvm-3.4.src.tar.gz && \
+        tar xf clang-3.4.src.tar.gz -C llvm-3.4/tools && \
         mv llvm-3.4/tools/clang{-3.4,} && \
-        tar zxf clang-tools-extra-3.4.src.tar.gz -C llvm-3.4/tools/clang/tools && \
+        tar xf clang-tools-extra-3.4.src.tar.gz -C llvm-3.4/tools/clang/tools && \
         mv llvm-3.4/tools/clang/tools/{clang-tools-extra-3.4,extra} && \
-        tar zxf compiler-rt-3.4.src.tar.gz -C llvm-3.4/projects && \
+        tar xf compiler-rt-3.4.src.tar.gz -C llvm-3.4/projects && \
         mv llvm-3.4/projects/compiler-rt{-3.4,} && \
         mkdir build && cd build && \
         ../llvm-3.4/configure --enable-cxx11 --enable-targets=host \

@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y wget build-essential python autoconf li
     rm -rf /var/lib/apt/lists/*
 
 # build custom llvm, installed to /usr/local
-RUN mkdir build/llvm && cd build/llvm && \
+RUN mkdir -p /build-llvm && cd /build-llvm && \
         wget http://llvm.org/releases/3.4/llvm-3.4.src.tar.gz \
              http://llvm.org/releases/3.4/clang-3.4.src.tar.gz \
              http://llvm.org/releases/3.4/clang-tools-extra-3.4.src.tar.gz \
@@ -31,7 +31,7 @@ RUN mkdir build/llvm && cd build/llvm && \
         make -j`cat /proc/cpuinfo | grep processor | wc -l` && \
         make install && \
     cd ~ && \
-    rm -rf build/llvm
+    rm -rf /build-llvm
 
 # build STACK
 RUN cd $STACK_ROOT && \
